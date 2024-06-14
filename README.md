@@ -2,6 +2,8 @@
 A PowerShell script that automates the process of JWT assertion.
 The script supports both AccessTokens and passwords.
 
+![App Screenshot](https://github.com/Brainflex41414141/AutoSignARM/blob/main/AutiSignARM_run.png)
+
 ## Execution Options
 
 Execute with tokens:
