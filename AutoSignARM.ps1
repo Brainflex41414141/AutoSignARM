@@ -139,7 +139,7 @@ function Invoke-AutoSignARM {
        }
     
     if ($AuthMethod -eq "Tokens"){
-            $keyVaultAccessToken = Read-Host "[?] Enter keyVault access token"
+            $keyVaultAccessToken = Read-Host "[?] Enter key vault access token"
         }
     
 
@@ -169,7 +169,7 @@ function Invoke-AutoSignARM {
     $TargetAppID = $TargetID
     $audience = "https://login.microsoftonline.com/$TenantId/oauth2/token"
 
-    Write-Host "==== Step 3 SigningJWT ===="
+    Write-Host "==== Step 3: SigningJWT ===="
     Write-Host "[+] Target ID: $($TargetAppID)"
     Write-Host "[+] Audience : $($audience)"
     
@@ -226,11 +226,11 @@ function Invoke-AutoSignARM {
     
     # Concat the signature to the unsigned JWT
     $signedJWT = $unsignedJwt + "." + $signature
-    Write-Host -ForegroundColor Green "[+] GoT signing token`n`n"
+    Write-Host -ForegroundColor Green "[+] Got signing token`n`n"
 
     
     ### Function 4 - Get-ARM
-    Write-Host "==== Step 4 Getting ARM Access Token ===="
+    Write-Host "==== Step 4: Getting ARM Access Token ===="
     Write-Host "[+] IdP      : $keyVaultTokenUrl"
     Write-Host "[+] client_id: $TargetId"
     Write-Host "[+] scope    : https://management.azure.com/.default"
@@ -251,13 +251,10 @@ function Invoke-AutoSignARM {
 
     Write-Host "++++ Next Steps ++++"
     Write-Host -ForegroundColor Yellow "[+] Run the following to connect as $TargetID"
-    Write-Host "`$ARMAccessToken = `'$ARMAccessToken`'`n"
+    Write-Host "`$ARMAccessToken = `'$ARMAccessToken`'`n`n"
     Write-Host "Connect-AzAccount -AccessToken `$ARMAccessToken -AccountId $TargetId -Tenant $TenantID"
 
     
-
-
-
     }
     catch {
     Write-Host -BackgroundColor Red "[!] An error occurred that could not be resolved."
