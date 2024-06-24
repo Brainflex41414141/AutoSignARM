@@ -27,7 +27,8 @@ function Invoke-AutoSignARM {
     )
 
 
-    Write-Output "`n`n    #### AutoSignARM ####`n`n"
+    Write-Output "`n`n    #### AutoSignARM ####"
+    Write-Output "     @Brainflex41414141`n`n"    
     Write-Output "[+] Tenant     : $TenantId"
     Write-Output "[+] Target     : $TargetID"
     Write-Output "[+] Abused Cert: $CertName"
